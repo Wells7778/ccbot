@@ -935,8 +935,8 @@ async def callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -
         msg_text, keyboard, subdirs = build_directory_browser(new_path_str)
         if context.user_data is not None:
             context.user_data[BROWSE_DIRS_KEY] = subdirs
-        await safe_edit(query, msg_text, reply_markup=keyboard)
         await query.answer()
+        await safe_edit(query, msg_text, reply_markup=keyboard)
 
     elif data == CB_DIR_UP:
         pending_tid = (
@@ -963,8 +963,8 @@ async def callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -
         msg_text, keyboard, subdirs = build_directory_browser(parent_path)
         if context.user_data is not None:
             context.user_data[BROWSE_DIRS_KEY] = subdirs
-        await safe_edit(query, msg_text, reply_markup=keyboard)
         await query.answer()
+        await safe_edit(query, msg_text, reply_markup=keyboard)
 
     elif data.startswith(CB_DIR_PAGE):
         pending_tid = (
@@ -990,8 +990,8 @@ async def callback_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -
         msg_text, keyboard, subdirs = build_directory_browser(current_path, pg)
         if context.user_data is not None:
             context.user_data[BROWSE_DIRS_KEY] = subdirs
-        await safe_edit(query, msg_text, reply_markup=keyboard)
         await query.answer()
+        await safe_edit(query, msg_text, reply_markup=keyboard)
 
     elif data == CB_DIR_CONFIRM:
         default_path = str(Path.cwd())
